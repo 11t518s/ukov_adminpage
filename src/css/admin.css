@@ -1,0 +1,49 @@
+.adminBody {
+    display: flex;
+}
+body {
+    margin: 0
+}
+.adminBody ul {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+.Nav{
+    margin: 0;
+    background-color: #2d3437;
+    padding: 30px;
+    text-align: center;
+    width: 20%;
+    height: 100%;
+    position: fixed;
+
+}
+.navItem {
+    color: white;
+    text-decoration: none;
+    list-style: dot;
+    padding: 30px 10px;
+}
+.navItem:hover {
+    font-size: 20px;
+}
+.mainContent {
+    width: 80%;
+    padding-top: 55px;
+    padding-left: 30%;
+}
+.title {
+    margin: auto;
+    padding-bottom: 70px;
+    display: block;
+    width: 100%
+}
+
+.subtitle {
+    margin: auto;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    display: block;
+    width: 100%
+}

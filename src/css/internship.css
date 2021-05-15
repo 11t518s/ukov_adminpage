@@ -1,0 +1,44 @@
+.smallBox {
+    margin-right: 20px;
+    width: 300px;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px;
+}
+
+.listBox {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.listBox img {
+    margin: auto;
+    position: absolute;
+    bottom: -100%;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    vertical-align: middle;
+    max-width: 125%;
+    
+}
+
+.listBox h1 {
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: #5f5f5f;
+}
+
+.listBox h2 {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #5f5f5f;
+}
+
+.mainContent {
+    display: flex;
+    flex-wrap: wrap;
+}
