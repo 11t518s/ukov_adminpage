@@ -16,6 +16,7 @@ function App() {
         setUserObj(user);
       } else {
         setIsLoggedIn(false);
+        alert('ukov.kr 계정으로 로그인해주세요!')
       }
     })
   }, [])

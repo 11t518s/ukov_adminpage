@@ -92,7 +92,6 @@ function Info() {
         
     };
     
-    const time = Finish
     const onSubmit = async (event) => {
         event.preventDefault();
 
@@ -111,7 +110,7 @@ function Info() {
         } 
         
         await dbService.collection('testinfo').add({
-            finish: firebaseInstance.firestore.Timestamp.fromDate(Finish),
+            // finish: firebaseInstance.firestore.Timestamp.fromDate(Finish),
             Link,
             alumni: Alumni,
             end_date,
