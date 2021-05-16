@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { dbService, firebaseInstance, storageService } from '../fbase';
+import { dbService, firebaseInstance ,storageService } from '../fbase';
 
 // 기존 데이터 가져오기
 function Info() {
@@ -91,7 +91,7 @@ function Info() {
         reader.readAsDataURL(theFile);
         
     };
-    
+
     const onSubmit = async (event) => {
         event.preventDefault();
 
@@ -106,7 +106,6 @@ function Info() {
             await dbService.collection('testinfo').doc(info?.id).delete()
             await dbService.collection('testinfo').doc(info?.id).delete()
             await dbService.collection('testinfo').doc(info?.id).delete()
-
         } 
         
         await dbService.collection('testinfo').add({
@@ -137,7 +136,7 @@ function Info() {
         setNewth('')
         setNewyear('')
         setNewAlumni('')
-        alert('홈페이지를 확인해보세요 :)')
+        alert('새로고침 하신 후 확인해보세요 :)')
     }
 
 
@@ -167,7 +166,7 @@ function Info() {
             <p>이건 날짜 데이터 따로 받습니다! 날짜 넣으시면 시간에 맞게 리크루팅 탭에 지원하기 버튼이 생기고 사라집니다</p>
 
             <input value={Finish} onChange={newFinishChange} type='date'/>서류 마감날짜를 넣어주세요<br/>
-            <input type='submit' className='button' />
+            <input type='submit' value="수정하기" className='button' />
         </form>
         </>
     )

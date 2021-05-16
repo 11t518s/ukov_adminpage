@@ -9,7 +9,7 @@ function Internship({userObj}) {
     // 삭제할 때 어떤 것을 삭제할 지 확인하기 위해 기존 데이터를 불러옴
     const [internship, setInternship] = useState([])
     const getInternship = async () =>{
-        const dbinternship = await dbService.collection("testinternship").get();
+        const dbinternship = await dbService.collection("internship").get();
         dbinternship.forEach((document) => {
             const newinternship = {
                 ...document.data(),
@@ -55,7 +55,7 @@ function Internship({userObj}) {
 
 
         // 스트링 정보를 넣어주기
-        await dbService.collection("testinternship").add({
+        await dbService.collection("internship").add({
             title: newTitle,
             subtitle: newSubtitle,
             internshipLink: newInternshipLink,
@@ -97,7 +97,7 @@ function Internship({userObj}) {
                     <input  type='text' value={newInternshipLink} onChange={onLinkChange} placeholder='링크 주소를 입력하세요'/><br/>
                     <input  type='text' value={newTitle} onChange={onTitleChange} placeholder='제목을 입력해주세요'/><br/>
                     <input  type='text' value={newSubtitle} onChange={onSubtitleChange} placeholder='부제를 입력해주세요'/><br/>
-                    <input  type='submit' placeholder='추가하기' className='button' value=''/>
+                    <input  type='submit' value="추가하기" className='button'/>
                 </form>
             <div className='subtitle'>삭제하기{internship.id}</div>
 
@@ -116,7 +116,7 @@ function Internship({userObj}) {
                         // 컨펌 후 firesore에서 데이터 삭제, storage에서 데이터 삭제
                         const del = window.confirm("지우시겠습니까?");
                             if (del) {
-                        dbService.doc(`testinternship/${internship.id}`).delete()
+                        dbService.doc(`internship/${internship.id}`).delete()
                         storageService.refFromURL(internship.internshipURL).delete()
                         alert('삭제를 완료했습니다. 새로고침 하시면 확인 가능합니다!')
                     }

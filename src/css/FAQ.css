@@ -1,0 +1,23 @@
+h1 {
+    font-size: 1.5rem;
+    color:#468eea;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+p {
+    margin: 0;
+}
+
+.FAQbox {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+button {
+    width: 300px
+}
+
+.newFAQ {
+    flex-direction: row;
+}
