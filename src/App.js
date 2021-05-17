@@ -8,12 +8,10 @@ import { auth } from './fbase';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userObj, setUserObj] = useState(null);
   useEffect (() =>{
     auth.onAuthStateChanged((user)=>{
       if(user.providerData[0].email.slice(-7,) === 'ukov.kr') {
         setIsLoggedIn(true);
-        setUserObj(user);
       } else {
         setIsLoggedIn(false);
         alert('ukov.kr 계정으로 로그인해주세요!')
@@ -25,7 +23,7 @@ function App() {
     <>
     <HashRouter>
         {isLoggedIn 
-        ? <Admin userObj={userObj} />
+        ? <Admin/>
         : <Login/>}
         <div className='info'>
 

@@ -8,7 +8,7 @@ function Networking() {
     // 삭제할 때 어떤 것을 삭제할 지 확인하기 위해 기존 데이터를 불러옴
     const [networking, setnetworking] = useState([])
     const getnetworking = async () =>{
-        const dbnetworking = await dbService.collection("networking").get();
+        const dbnetworking = await dbService.collection("networking").orderBy('createdAt').get();
         dbnetworking.forEach((document) => {
             const newnetworking = {
                 ...document.data(),
@@ -23,9 +23,9 @@ function Networking() {
 
 
     // 새로 추가할 스트링 state 선언
-    const [newnetworkingLink, setNewnetworkingLink] = useState();
-    const [newTitle, setNewTitle] = useState();
-    const [newSubtitle, setNewSubtitle] = useState();
+    const [newnetworkingLink, setNewnetworkingLink] = useState(null);
+    const [newTitle, setNewTitle] = useState(null);
+    const [newSubtitle, setNewSubtitle] = useState(null);
 
 
     // input태그에 입력 시 각 state에 정보 업로드
@@ -41,38 +41,8 @@ function Networking() {
         const {target:{value}} = event;
         setNewSubtitle(value)
     }
-
-
-    // submit 함수 
-    const newSubmit = async (event) => {
-        event.preventDefault();
-
-        // 파일을 스토리지에 업로드하기
-        const fireRef = storageService.ref().child(`networking/${uuidv4()}`)
-        const response = await fireRef.putString(newFile, "data_url")
-        const networkingURL = await response.ref.getDownloadURL();
-
-
-        // 스트링 정보를 넣어주기
-        await dbService.collection("networking").add({
-            title: newTitle,
-            subtitle: newSubtitle,
-            networkingLink: newnetworkingLink,
-            networkingURL,
-            createdAt: Date.now(),
-        })
-
-        // 새로 업로드 후 input 태그 초기화
-        setNewnetworkingLink('')
-        setNewTitle('')
-        setNewSubtitle('')
-        setNewFile()
-        alert('새로고침 하신 후 확인해보세요 :)')
-    }
-
-    
     // 파일을 데이터 url로 받아서 화면상에 보여주기
-    const [newFile, setNewFile] = useState()
+    const [newFile, setNewFile] = useState(null)
     const fileChange = (event) => {
         const {
             target: {files}
@@ -82,8 +52,41 @@ function Networking() {
         reader.onloadend = (finishedEvent) => {
             setNewFile(finishedEvent.currentTarget.result)
         };
-        reader.readAsDataURL(theFile);
+        if(theFile){
+            reader.readAsDataURL(theFile);}
     };
+
+
+
+    // submit 함수 
+    const newSubmit = async (event) => {
+        event.preventDefault();
+
+        // 파일을 스토리지에 업로드하기
+        if (newFile){
+            const fireRef = storageService.ref().child(`recruit/${uuidv4()}`)
+            const response = await fireRef.putString(newFile, "data_url")
+            setNewFile(response.ref.getDownloadURL())
+            }
+
+        // 스트링 정보를 넣어주기
+        await dbService.collection("networking").add({
+            title: newTitle,
+            subtitle: newSubtitle,
+            networkingLink: newnetworkingLink,
+            networkingURL: newFile,
+            createdAt: Date.now(),
+        })
+
+        // 새로 업로드 후 input 태그 초기화
+        setNewnetworkingLink('')
+        setNewTitle('')
+        setNewSubtitle('')
+        setNewFile('')
+        alert('새로고침 하신 후 확인해보세요 :)')
+    }
+
+    
 
     return (
         <>
@@ -99,7 +102,6 @@ function Networking() {
                     <input  type='submit' value="추가하기" className='button'/>
                 </form>
             <div className='subtitle'>삭제하기{networking.id}</div>
-
 
             {networking.map((networking)=>(
                 <>

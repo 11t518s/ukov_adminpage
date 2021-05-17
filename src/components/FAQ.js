@@ -115,12 +115,12 @@ function FAQ({userObj}) {
     // 파일을 데이터 url로 받아서 화면상에 보여주기
     return (
         <>
+        <div className='newFAQ'>
             <div className='title'>리크루트 탭의 FAQ가 수정되는 곳입니다!</div>
             <div className='subtitle'> 추가하기 </div>
-            <p>데이터 베이스에 줄바꿈이 인식이 안돼서 바꿈 하실 경우 아래 줄에다가 입력해주시면 됩니다!<br/>
+            <p>데이터 베이스에 줄바꿈이 인식이 안돼서 줄바꿈 하실 경우 아래 줄에다가 입력해주시면 됩니다!<br/>
                 줄바꿈 필요 없으시면 필요하신 곳 까지 적고 제출 하시면 됩니다 :)<br/><br/><br/>
             </p>
-            <div className='newFAQ'>
                 <form onSubmit={newSubmit}>
                     <input  type='text' value={newQ} onChange={onQChange} placeholder='Q를 입력하세요'/><br/>
                     <input  type='text' value={newA} onChange={onAChange} placeholder='A를 입력해주세요'/><br/>
@@ -147,6 +147,7 @@ function FAQ({userObj}) {
 
                     <input  type='submit' value="추가하기" className='button'/>
                 </form>
+                <br/><br/><br/>
                 <button onClick={ACounter}>한 줄 추가하기</button>
                 <button onClick={ACounterReversed}>한 줄 없애기</button>
             </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { HashRouter, Link, Route, Switch } from 'react-router-dom';
 import FAQ from './components/FAQ';
 import Info from './components/info';
 import Internship from './components/internship';
@@ -10,11 +10,11 @@ import Recruit from './components/recruit';
 import './css/admin.css'
 
 
-function Admin({userObj}) {
+function Admin() {
 
     return (
     <div className='adminBody'>
-        <BrowserRouter>
+        <HashRouter>
             <ul className='Nav'>
                 <Link className='navItem' exact to='/info'>UKOV 정보</Link>
                 <Link className='navItem' exact to='/internship'>UKOV 후기</Link>
@@ -27,10 +27,10 @@ function Admin({userObj}) {
             <div className='mainContent'>
             <Switch>
                 <Route exact path={['/', '/info']}>
-                    <Info userObj={userObj} />
+                    <Info />
                 </Route>
                 <Route exact path='/internship'>
-                    <Internship userObj={userObj} />
+                    <Internship/>
                 </Route>
                 <Route exact path='/Partner'>
                     <Partner />
@@ -49,7 +49,7 @@ function Admin({userObj}) {
                 </Route>
             </Switch>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     </div>  
         );
 }
