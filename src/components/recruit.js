@@ -163,7 +163,8 @@ function Recruit({userObj}) {
             <div className='title'>리크루팅 탭 선발부분이 수정되는 곳입니다!</div>
             <div className='subtitle'> 추가하기 </div>
             <div>
-                <form onSubmit={newSubmit}>
+                <div className='editBox'>
+                <form onSubmit={newSubmit} >
                 이미지 파일을 추가하세요<input type='file' onChange={fileChange}/>
                 {newFile === null
                 ? <div></div> 
@@ -202,6 +203,7 @@ function Recruit({userObj}) {
 
                 <button onClick={ACounter}>한 줄 추가하기</button>
                 <button onClick={ACounterReversed}>한 줄 없애기</button>
+                </div>
                 </div>
 
             <div className='subtitle'>삭제하기{recruit.id}</div>

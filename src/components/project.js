@@ -94,7 +94,7 @@ function Project() {
             <div className='title'>프로그램탭의 프로젝트가 수정되는 곳입니다!</div>
             <div className='subtitle'> 추가하기 </div>
 
-                <form onSubmit={newSubmit}>
+                <form onSubmit={newSubmit} className='editBox'>
                 이미지 파일을 추가하세요<input type='file' onChange={fileChange}/>
                 {newFile && <img src={newFile} alt='file' width='300px'/>}<br/>
                     <input  type='text' value={newprojectLink} onChange={onLinkChange} placeholder='링크 주소를 입력하세요'/><br/>

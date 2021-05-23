@@ -1,6 +1,8 @@
 import React from 'react';
 import { HashRouter, Link, Route, Switch } from 'react-router-dom';
 import FAQ from './components/FAQ';
+import HELP from './components/Help';
+import Help from './components/Help';
 import Info from './components/info';
 import Internship from './components/internship';
 import Networking from './components/networking';
@@ -20,9 +22,12 @@ function Admin() {
                 <Link className='navItem' exact to='/internship'>UKOV 후기</Link>
                 <Link className='navItem' exact to='/partner'>다양한 파트너사</Link>
                 <Link className='navItem' exact to='/networking'>네트워킹</Link>
+                <Link className='navItem' exact to='/project'>미니프로젝트</Link>
+
                 <Link className='navItem' exact to='/recruit'>선발부분</Link>
                 <Link className='navItem' exact to='/FAQ'>FAQ</Link>
-                <Link className='navItem' exact to='/project'>미니프로젝트</Link>
+                <Link className='navItem' exact to='/HELP'>도와주세요,,</Link>
+
             </ul>
             <div className='mainContent'>
             <Switch>
@@ -46,6 +51,9 @@ function Admin() {
                 </Route>        
                 <Route exact path='/FAQ'>
                     <FAQ />
+                </Route>
+                <Route exact path='/help'>
+                    <HELP />
                 </Route>
             </Switch>
             </div>

@@ -6,13 +6,13 @@ function Partner() {
     // partner 정보 받아오기
 
         const [partner, setpartner] = useState([]);
-        const getpartner = async () =>{
-            const dbpartner = await dbService.collection("partner").orderBy("createdAt").get();
-            dbpartner.forEach((document) => {
-                const newpartner = {
-                    ...document.data(),
-                    id: document.id
-                };
+        const getpartner = async () => {
+                    const dbpartner = await dbService.collection("partner").orderBy("createdAt").get();
+                    dbpartner.forEach((document) => {
+                                const newpartner = {
+                                    ...document.data(),
+                                    id: document.id
+                                };
                 setpartner((prev) => [newpartner, ...prev]);
             });
         };
@@ -67,7 +67,7 @@ function Partner() {
         <div className='title'>홈탭의 파트너사가 수정되는 곳입니다!</div>
         <div className='subtitle'> 추가하기 </div>
 
-            <form onSubmit={newSubmit}>
+            <form onSubmit={newSubmit} className='editBox'>
             이미지 파일을 추가하세요<input type='file' onChange={newfileChange}/>
             {newFile && <img src={newFile} alt='file' width='300px' />}<br/>
                 <input  type='text' value={Link} onChange={newLinkChange} placeholder='링크 주소를 입력하세요'/><br/>

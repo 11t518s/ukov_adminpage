@@ -93,7 +93,7 @@ function Networking() {
             <div className='title'>프로그램탭의 네트워킹이 수정되는 곳입니다!</div>
             <div className='subtitle'> 추가하기 </div>
 
-                <form onSubmit={newSubmit}>
+                <form onSubmit={newSubmit} className='editBox'>
                 이미지 파일을 추가하세요<input type='file' onChange={fileChange}/>
                 {newFile && <img src={newFile} alt='file' width='300px' height='300px' />}<br/>
                     <input  type='text' value={newnetworkingLink} onChange={onLinkChange} placeholder='링크 주소를 입력하세요'/><br/>

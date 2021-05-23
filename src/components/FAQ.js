@@ -121,7 +121,7 @@ function FAQ({userObj}) {
             <p>데이터 베이스에 줄바꿈이 인식이 안돼서 줄바꿈 하실 경우 아래 줄에다가 입력해주시면 됩니다!<br/>
                 줄바꿈 필요 없으시면 필요하신 곳 까지 적고 제출 하시면 됩니다 :)<br/><br/><br/>
             </p>
-                <form onSubmit={newSubmit}>
+            <div className='editBox'>                <form onSubmit={newSubmit} >
                     <input  type='text' value={newQ} onChange={onQChange} placeholder='Q를 입력하세요'/><br/>
                     <input  type='text' value={newA} onChange={onAChange} placeholder='A를 입력해주세요'/><br/>
                     {ACount > 0 && <input  type='text' value={newA2} onChange={onA2Change} placeholder='A를 입력해주세요'/>}
@@ -150,6 +150,7 @@ function FAQ({userObj}) {
                 <br/><br/><br/>
                 <button onClick={ACounter}>한 줄 추가하기</button>
                 <button onClick={ACounterReversed}>한 줄 없애기</button>
+            </div>
             </div>
 
 

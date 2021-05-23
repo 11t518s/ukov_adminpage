@@ -95,7 +95,7 @@ function Internship() {
             <div className='title'>홈탭의 UKOV후기와 프로그램탭의 스타트업 인턴십 <b>두곳 모두</b> 수정되는 곳입니다!</div>
             <div className='subtitle'> 추가하기 </div>
 
-                <form onSubmit={newSubmit}>
+                <form onSubmit={newSubmit} className='editBox'>
                 이미지 파일을 추가하세요<input type='file' onChange={fileChange}/>
                 {newFile && <img src={newFile} alt='file' width='300px' height='300px' />}<br/>
                     <input  type='text' value={newInternshipLink} onChange={onLinkChange} placeholder='링크 주소를 입력하세요'/><br/>
