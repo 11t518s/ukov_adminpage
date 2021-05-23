@@ -21,3 +21,6 @@ button {
 .newFAQ {
     flex-direction: row;
 }
+.FAQ {
+    width: 80%
+}

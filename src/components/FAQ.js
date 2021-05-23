@@ -121,28 +121,29 @@ function FAQ({userObj}) {
             <p>데이터 베이스에 줄바꿈이 인식이 안돼서 줄바꿈 하실 경우 아래 줄에다가 입력해주시면 됩니다!<br/>
                 줄바꿈 필요 없으시면 필요하신 곳 까지 적고 제출 하시면 됩니다 :)<br/><br/><br/>
             </p>
-            <div className='editBox'>                <form onSubmit={newSubmit} >
-                    <input  type='text' value={newQ} onChange={onQChange} placeholder='Q를 입력하세요'/><br/>
-                    <input  type='text' value={newA} onChange={onAChange} placeholder='A를 입력해주세요'/><br/>
-                    {ACount > 0 && <input  type='text' value={newA2} onChange={onA2Change} placeholder='A를 입력해주세요'/>}
+            <div className='editBox'>                
+            <form onSubmit={newSubmit} >
+                    <input className='input' type='text' value={newQ} onChange={onQChange} placeholder='Q를 입력하세요'/><br/>
+                    <input className='input' type='text' value={newA} onChange={onAChange} placeholder='A를 입력해주세요'/><br/>
+                    {ACount > 0 && <input className='input' type='text' value={newA2} onChange={onA2Change} placeholder='A를 입력해주세요'/>}
                     {ACount > 0 &&<br/>}
 
-                    {ACount > 1 && <input  type='text' value={newA3} onChange={onA3Change} placeholder='A를 입력해주세요'/>}
+                    {ACount > 1 && <input className='input' type='text' value={newA3} onChange={onA3Change} placeholder='A를 입력해주세요'/>}
                     {ACount > 1 &&<br/>}
 
-                    {ACount > 2 && <input  type='text' value={newA4} onChange={onA4Change} placeholder='A를 입력해주세요'/>}
+                    {ACount > 2 && <input className='input' type='text' value={newA4} onChange={onA4Change} placeholder='A를 입력해주세요'/>}
                     {ACount > 2 &&<br/>}
 
-                    {ACount > 3 && <input  type='text' value={newA5} onChange={onA5Change} placeholder='A를 입력해주세요'/>}
+                    {ACount > 3 && <input className='input' type='text' value={newA5} onChange={onA5Change} placeholder='A를 입력해주세요'/>}
                     {ACount > 3 &&<br/>}
 
-                    {ACount > 4 && <input  type='text' value={newA6} onChange={onA6Change} placeholder='A를 입력해주세요'/>}
+                    {ACount > 4 && <input className='input' type='text' value={newA6} onChange={onA6Change} placeholder='A를 입력해주세요'/>}
                     {ACount > 4 &&<br/>}
 
-                    {ACount > 5 && <input  type='text' value={newA7} onChange={onA7Change} placeholder='A를 입력해주세요'/>}
+                    {ACount > 5 && <input className='input' type='text' value={newA7} onChange={onA7Change} placeholder='A를 입력해주세요'/>}
                     {ACount > 5 &&<br/>}
 
-                    {ACount > 6 && <input  type='text' value={newA8} onChange={onA8Change} placeholder='A를 입력해주세요'/>}
+                    {ACount > 6 && <input className='input' type='text' value={newA8} onChange={onA8Change} placeholder='A를 입력해주세요'/>}
                     {ACount > 6 &&<br/>}
 
                     <input  type='submit' value="추가하기" className='button'/>
@@ -159,7 +160,8 @@ function FAQ({userObj}) {
 
             {FAQ.map((FAQ)=>(
                 <>
-                    <div className='FAQ' key={FAQ.id}>
+                    <div className='FAQ editBox'>
+                    <div key={FAQ.id}>
                           <h1>{FAQ.Q}</h1>
                           <p>{FAQ.A}</p>
                           <p>{FAQ.A2}</p>
@@ -179,6 +181,7 @@ function FAQ({userObj}) {
                         alert('삭제를 완료했습니다. 새로고침 하시면 확인 가능합니다!')
                     }
                     }}>삭제하기</button>
+                    </div>
                     </>
             ))}    
                             </div>

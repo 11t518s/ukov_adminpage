@@ -70,8 +70,8 @@ function Partner() {
             <form onSubmit={newSubmit} className='editBox'>
             이미지 파일을 추가하세요<input type='file' onChange={newfileChange}/>
             {newFile && <img src={newFile} alt='file' width='300px' />}<br/>
-                <input  type='text' value={Link} onChange={newLinkChange} placeholder='링크 주소를 입력하세요'/><br/>
-                <input  type='submit' value="추가하기" className='button'/>
+                <input type='text' value={Link} onChange={newLinkChange} placeholder='링크 주소를 입력하세요'/><br/>
+                <input type='submit' value="추가하기" className='button'/>
             </form>
 
         <div className='subtitle'>삭제하기 </div>
