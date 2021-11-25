@@ -94,6 +94,7 @@ function FAQ({userObj}) {
 
         // 스트링 정보를 넣어주기
         await dbService.collection("FAQ").add({
+            Q: newQ,
             A: newA,
             A2: newA2,
             A3: newA3,
